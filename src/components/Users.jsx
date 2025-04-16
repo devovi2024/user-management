@@ -2,7 +2,14 @@ import React, { useContext } from 'react';
 import User from './User';
 import { UserContext } from '../context/UserContext';
 
-const Users = ({ handleDeleteUser }) => {
+const Users = () => {
+  const { users, setUsers } = useContext(UserContext);
+
+  const handleDelete = (id) => {
+    const filtered = users.filter(user => user.id !== id);
+    setUsers(filtered);
+  };
+ 
   const gridStyle = {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
@@ -12,20 +19,16 @@ const Users = ({ handleDeleteUser }) => {
     margin: '0 auto',
   };
 
-  const { users, setUsers } = useContext(UserContext);
-
   return (
-    <div>
-      <section style={gridStyle}>
-        {users.map((user) => (
-          <User
-            key={user.id}
-            user={user}
-            handleDeleteUser={handleDeleteUser}
-          />
-        ))}
-      </section>
-    </div>
+    <section style={gridStyle}>
+      {users.map((user) => (
+        <User
+          key={user.id}
+          user={user}
+          onDelete={() => handleDelete(user.id)}
+        />
+      ))}
+    </section>
   );
 };
 

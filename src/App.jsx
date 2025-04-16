@@ -12,11 +12,6 @@ const App = () => {
 
   const [nextId, setNextId] = useState(204);
 
-  const handleDeleteUser = (id) => {
-    const filteredUsers = users.filter((user) => user.id !== id);
-    setUsers(filteredUsers);
-  };
-
   const addUser = (newUser) => {
     setUsers((prevUsers) => {
       const updatedUsers = [...prevUsers, { ...newUser, id: nextId }];
@@ -30,7 +25,7 @@ const App = () => {
       <div>
         <NewUser addUser={addUser} />
         <h1>Users</h1>
-        <Users handleDeleteUser={handleDeleteUser} />
+        <Users />
       </div>
     </UserContext.Provider>
   );
