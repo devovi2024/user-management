@@ -1,33 +1,28 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Users from "./components/Users";
 import NewUser from "./components/NewUser";
-import { UserContext } from "./context/UserContext";
+import "./styles/UserStyles.css";
 
 const App = () => {
   const [users, setUsers] = useState([
-    { id: 201, username: "arfan" },
-    { id: 202, username: "Deif" },
-    { id: 203, username: "Ovi" },
+    { id: 1, Name: "Mow", section: "A10" },
+    { id: 2, Name: "John", section: "B20" },
   ]);
 
-  const [nextId, setNextId] = useState(204);
+  const deleteUser = (id) => {
+    setUsers(users.filter((user) => user.id !== id));
+  };
 
   const addUser = (newUser) => {
-    setUsers((prevUsers) => {
-      const updatedUsers = [...prevUsers, { ...newUser, id: nextId }];
-      setNextId(nextId + 1);
-      return updatedUsers;
-    });
+    setUsers([...users, newUser]);
   };
 
   return (
-    <UserContext.Provider value={{ users, setUsers }}>
-      <div>
-        <NewUser addUser={addUser} />
-        <h1>Users</h1>
-        <Users />
-      </div>
-    </UserContext.Provider>
+    <div className="app-container">
+      <h1 className="title">European Office - User Management</h1>
+      <NewUser addUser={addUser} />
+      <Users users={users} deleteUser={deleteUser} />
+    </div>
   );
 };
 

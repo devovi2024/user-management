@@ -1,0 +1,110 @@
+/* Responsive European Office Design - Already provided by you */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+  }
+  
+  .app-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .title {
+    text-align: center;
+    color: #2e3a59;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+  
+  .user-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  @media (min-width: 600px) {
+    .user-form {
+      flex-direction: row;
+    }
+  }
+  
+  .input-field {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .btn-submit {
+    padding: 10px 20px;
+    background-color: #0078d7;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .btn-submit:hover {
+    background-color: #005ea6;
+  }
+  
+  .user-list {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .user-card {
+    background-color: white;
+    border: 1px solid #dce1e7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  
+  .button-group {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn-toggle, .btn-delete {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .btn-toggle {
+    background-color: #e1ecf4;
+    color: #0366d6;
+  }
+  
+  .btn-toggle:hover {
+    background-color: #d0e3f1;
+  }
+  
+  .btn-delete {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .btn-delete:hover {
+    background-color: #f5c6cb;
+  }
+  
+  .details {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f0f4f8;
+    border-left: 3px solid #0078d7;
+    font-size: 0.95rem;
+    color: #555;
+  }
+  

@@ -1,34 +1,40 @@
-import React, { useState } from 'react';
-import '../NewUser.css';
+import React, { useState } from "react";
 
-const NewUser = ({ addUser }) => {  
-  const [username, setUsername] = useState("");
+const NewUser = ({ addUser }) => {
+  const [name, setName] = useState("");
+  const [section, setSection] = useState("");
 
-  const handleNewUserName = (event) => {
-    setUsername(event.target.value);
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const newUser = { id: new Date().getTime().toString(), username: username };
-    addUser(newUser); 
-    setUsername("");  
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!name || !section) return;
+    const newUser = {
+      id: Date.now(),
+      Name: name,
+      section: section,
+    };
+    addUser(newUser);
+    setName("");
+    setSection("");
+  };
 
   return (
-    <div className="container">
-      <h2>Create New User</h2>
-      <form onSubmit={handleSubmit}>
-        <input 
-          type="text" 
-          placeholder="Enter username" 
-          className="input" 
-          value={username}
-          onChange={handleNewUserName}
-        />
-        <button type="submit" className="button">Add User</button>
-      </form>
-    </div>
+    <form className="user-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Full Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        className="input-field"
+      />
+      <input
+        type="text"
+        placeholder="Section"
+        value={section}
+        onChange={(e) => setSection(e.target.value)}
+        className="input-field"
+      />
+      <button type="submit" className="btn-submit">Add User</button>
+    </form>
   );
 };
 
